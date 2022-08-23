@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClothesComponent } from './clothes/clothes.component';
 import {ButtonModule} from 'primeng/button';
 import {DataViewModule} from 'primeng/dataview';
@@ -26,7 +25,6 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
     ButtonModule,
     DataViewModule,
     DropdownModule,
