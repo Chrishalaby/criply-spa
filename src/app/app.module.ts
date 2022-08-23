@@ -6,6 +6,16 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClothesComponent } from './clothes/clothes.component';
+import {ButtonModule} from 'primeng/button';
+import {DataViewModule} from 'primeng/dataview';
+import { DropdownModule } from 'primeng/dropdown';
+import {RatingModule} from 'primeng/rating';
+import {HttpClientModule } from '@angular/common/http';
+import {PanelModule} from 'primeng/panel';
+import {DialogModule} from 'primeng/dialog';
+import {InputTextModule} from 'primeng/inputtext';
+import {RippleModule} from 'primeng/ripple';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +26,17 @@ import { ClothesComponent } from './clothes/clothes.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ButtonModule,
+    DataViewModule,
+    DropdownModule,
+    RatingModule,
+    HttpClientModule,
+    PanelModule,
+    DialogModule,
+    InputTextModule,
+    RippleModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
