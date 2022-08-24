@@ -13,7 +13,7 @@ export interface Product {
   inventoryStatus: string;
   category: string;
   rating: number;
-
+  size: string;
 }
 
 @Component({
@@ -24,39 +24,62 @@ export interface Product {
 
 export class ClothesComponent implements OnInit {
   products: Product[] = []
-  sortOptions: SelectItem[] = [];
-  sortOrder!: number;
-  sortField!: string;
+
   formGroup: FormGroup = this.formBuilder.group({
-    search: []
+    search: [],
+    // sort: this.formBuilder.group({
+    //   sortField: [''],
+    //   sortOrder: [''],
+    //   sortDirection: [''],
+    // })
+    sort: [],
   })
+  sortOrder: number = 0;
+  sortField: string = '';
+
+  sortOptions: {label: string, value: string}[]= [
+    {label: 'Price High to Low', value: '!price'},
+    {label: 'Price Low to High', value: 'price'}
+  ];
+
   @ViewChild('dv') dataView!: DataView;
   constructor(
     private readonly httpClient: HttpClient,
     private readonly formBuilder: FormBuilder,
-    ) { }
+    ){}
 
   ngOnInit() {
     this.httpClient.get<any>('assets/products.json').pipe(tap((products: any)=> {this.products = products.data;})).subscribe();
-    this.sortOptions = [
-      {label: 'Price High to Low', value: '!price'},
-      {label: 'Price Low to High', value: 'price'}
-    ];
-    this.formGroup.get('search')?.valueChanges.pipe(debounceTime(300)).subscribe((e)=>{
-      this.dataView.filter(e);
-    });
+    this.formGroup.get('search')?.valueChanges.pipe(debounceTime(300)).subscribe((e)=>{this.dataView.filter(e);});
+    // this.formGroup.get(['sort', 'sortDirection'])?.valueChanges.subscribe((sortDirection: string)=>{
+    //   if (this.formGroup.get(['sort', 'sortDirection'])?.value.indexOf('!') === 0) {
+    //       this.formGroup.get('sort')?.patchValue({
+    //         sortOrder: -1,
+    //         sortField: sortDirection.substring(1, sortDirection.length),
+    //       });
+    //   }
+    //   else {
+    //       this.formGroup.get('sort')?.patchValue({
+    //         sortOrder: 1,
+    //         sortField: sortDirection,
+    //       });
+    //   }
+    // })
   }
 
   onSortChange(event: { value: any; }) {
     let value = event.value;
 
-    if (value.indexOf('!') === 0) {
+    if (value && value.indexOf('!') === 0) {
         this.sortOrder = -1;
         this.sortField = value.substring(1, value.length);
+        console.log('2')
     }
     else {
         this.sortOrder = 1;
         this.sortField = value;
+        console.log('3')
     }
+
   }
 }

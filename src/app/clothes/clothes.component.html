@@ -1,14 +1,14 @@
 <div class="card">
-  <p-dataView #dv [value]="products" [paginator]="true" [rows]="9" filterBy="name" layout="grid">
+  <p-dataView #dv [value]="products" [paginator]="true" [rows]="9" filterBy="name" layout="grid" [sortField]="sortField" [sortOrder]="sortOrder">
     <ng-template pTemplate="header">
-          <form [formGroup]="formGroup" class="flex flex-column md:flex-row md:justify-content-between">
-            <!-- <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By Price" (onChange)="onSortChange($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown> -->
+          <form class="flex flex-column md:flex-row md:justify-content-between" [formGroup]="formGroup">
+            <p-dropdown formControlName="sort" [options]="sortOptions" type="search" placeholder="Sort By Price" (onChange)="onSortChange($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
               <span class="p-input-icon-left mb-2 md:mb-0">
                   <i class="pi pi-search"></i>
                   <input formControlName="search" type="search" pInputText placeholder="Search by Name">
               </span>
             <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
-          </form>
+            </form>
       </ng-template>
       <ng-template let-product pTemplate="listItem">
           <div class="col-12">
@@ -39,7 +39,7 @@
                       <span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
                   </div>
                   <div class="product-grid-item-content">
-                      <img [src]="'assets/images/' + product.image" [alt]="product.name" style="width: 300px; height: 200px;"/>
+                      <img [src]="'assets/images/' + product.image" [alt]="product.name" />
                       <div class="product-name">{{product.name}}</div>
                       <div class="product-description">{{product.description}}</div>
                       <p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating>
