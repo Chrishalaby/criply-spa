@@ -16,7 +16,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {RippleModule} from 'primeng/ripple';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {ImageModule} from 'primeng/image'
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +37,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     RippleModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ImageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
