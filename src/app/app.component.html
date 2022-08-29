@@ -1,2 +1,19 @@
-<app-header></app-header>
-<app-clothes></app-clothes>
+<!-- <head>
+  <link id="app-theme" rel="stylesheet" type="text/css" href="bootstrap4-dark-purple.css">
+</head> -->
+
+<p-menubar [model]="items" [autoDisplay]="true">
+  <ng-template pTemplate="start">
+    <img src="assets/profile.png" height="40" class="m-2" style="border-radius: 50%;">
+  </ng-template>
+  <!-- <h1>CRIPLY</h1> -->
+  <!-- <ng-template pTemplate="end">
+    <div class="flex pr-2 m-auto">
+      <p class="m-auto pr-2">Dark Mode: </p>
+      <p-inputSwitch >
+        <a (click)="changeTheme('bootstrap4-dark-purple')" class="cursor-pointer"></a>
+      </p-inputSwitch>
+    </div>
+  </ng-template> -->
+</p-menubar>
+<router-outlet></router-outlet>

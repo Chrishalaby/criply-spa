@@ -1,8 +1,13 @@
+<!-- <p-sidebar [visible]="true" [baseZIndex]="1000">
+  <form class="flex flex-column md:flex-row md:justify-content-between" [formGroup]="formGroup">
+    <p-dropdown formControlName="sort" [options]="sortOptions" type="search" placeholder="Sort By Price" (onChange)="onSortChange($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+  </form>
+</p-sidebar> -->
 <div class="card">
   <p-dataView #dv [value]="products" [paginator]="true" [rows]="9" filterBy="name" layout="grid" [sortField]="sortField" [sortOrder]="sortOrder">
     <ng-template pTemplate="header">
           <form class="flex flex-column md:flex-row md:justify-content-between" [formGroup]="formGroup">
-            <p-dropdown formControlName="sort" [options]="sortOptions" type="search" placeholder="Sort By Price" (onChange)="onSortChange($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+            <p-dropdown class="pb-2" formControlName="sort" [options]="sortOptions" type="search" placeholder="Sort By Price" (onChange)="onSortChange($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
               <span class="p-input-icon-left mb-2 md:mb-0">
                   <i class="pi pi-search"></i>
                   <input formControlName="search" type="search" pInputText placeholder="Search by Name">

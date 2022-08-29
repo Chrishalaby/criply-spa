@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { debounceTime, tap } from 'rxjs';
-import {SelectItem} from 'primeng/api';
+import {FilterMatchMode, FilterService, SelectItem} from 'primeng/api';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { DataView } from 'primeng/dataview';
 
@@ -37,6 +37,12 @@ export class ClothesComponent implements OnInit {
   sortOrder: number = 0;
   sortField: string = '';
 
+  matchModeOptions!: SelectItem[];
+  tags: {field: string, header: string}[]= [
+    { field: "brand", header: "Brand", },
+    { field: "color", header: "Color", }
+  ];
+
   sortOptions: {label: string, value: string}[]= [
     {label: 'Price High to Low', value: '!price'},
     {label: 'Price Low to High', value: 'price'}
@@ -46,6 +52,8 @@ export class ClothesComponent implements OnInit {
   constructor(
     private readonly httpClient: HttpClient,
     private readonly formBuilder: FormBuilder,
+    private filterService: FilterService,
+    // private importService: ImportService
     ){}
 
   ngOnInit() {
@@ -65,6 +73,26 @@ export class ClothesComponent implements OnInit {
     //       });
     //   }
     // })
+    const customFilterName = "custom-equals";
+    this.filterService.register(
+      customFilterName,
+      (value: { toString: () => any; } | null | undefined, filter: string | null | undefined): boolean => {
+        if (filter === undefined || filter === null || filter.trim() === "") {
+          return true;
+        }
+
+        if (value === undefined || value === null) {
+          return false;
+        }
+
+        return value.toString() === filter.toString();
+      });
+
+      this.matchModeOptions = [
+        { label: "Custom Equals", value: customFilterName },
+        { label: "Starts With", value: FilterMatchMode.STARTS_WITH },
+        { label: "Contains", value: FilterMatchMode.CONTAINS }
+      ]
   }
 
   onSortChange(event: { value: any; }) {

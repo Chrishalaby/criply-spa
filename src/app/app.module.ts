@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { ClothesComponent } from './clothes/clothes.component';
 import {ButtonModule} from 'primeng/button';
 import {DataViewModule} from 'primeng/dataview';
@@ -16,12 +14,18 @@ import {InputTextModule} from 'primeng/inputtext';
 import {RippleModule} from 'primeng/ripple';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ImageModule} from 'primeng/image'
+import {ImageModule} from 'primeng/image';
+import {TagModule} from 'primeng/tag';
+import {SidebarModule} from 'primeng/sidebar';
+import {MenubarModule} from'primeng/menubar';
+import { AboutUsComponent } from './about-us/about-us.component';
+import {InputSwitchModule} from 'primeng/inputswitch'
+
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    ClothesComponent
+    ClothesComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,11 @@ import {ImageModule} from 'primeng/image'
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ImageModule
+    ImageModule,
+    TagModule,
+    SidebarModule,
+    MenubarModule,
+    InputSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]
