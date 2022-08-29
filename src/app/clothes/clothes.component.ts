@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { debounceTime, tap } from 'rxjs';
-import {FilterMatchMode, FilterService, SelectItem} from 'primeng/api';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FilterMatchMode, FilterService, SelectItem } from 'primeng/api';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { DataView } from 'primeng/dataview';
 
 export interface Product {

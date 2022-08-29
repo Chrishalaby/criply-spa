@@ -1,7 +1,11 @@
-:host ::ng-deep.p-menubar{
-  position: sticky;
-  top: 0rem;
-  z-index: 1;
+:host {
+  ::ng-deep {
+    .p-menubar {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+  }
 }
 
-// @import "primeng/resources/themes/bootstrap4-dark-purple/theme.css";
+// @import "primeng/resources//bootstrap4-dark-purple/theme.css";

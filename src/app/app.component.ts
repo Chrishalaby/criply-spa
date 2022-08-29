@@ -1,31 +1,29 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+
 import { ThemeService } from './theme-service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-
-  constructor(private themeService: ThemeService) {}
-
-  title = 'criply';
-  items: MenuItem[] = [
+  public title = 'criply';
+  public items: MenuItem[] = [
     {
-      label:'Home',
-      icon:'pi pi-fw pi-home',
-      routerLink: '/'
+      label: 'Home',
+      icon: 'pi pi-fw pi-home',
+      routerLink: '/',
     },
     {
-      label:'About us',
-      icon:'pi pi-fw pi-info-circle',
-      routerLink: 'about-us'
+      label: 'About us',
+      icon: 'pi pi-fw pi-info-circle',
+      routerLink: 'about-us',
     },
     {
-      label:'Contact',
-      icon:'pi pi-fw pi-send',
+      label: 'Contact',
+      icon: 'pi pi-fw pi-send',
       items: [
         {
           label: 'Instagram',
@@ -61,8 +59,11 @@ export class AppComponent {
     }
   ];
 
+  public constructor(
+    private readonly themeService: ThemeService,
+  ) {}
+
   changeTheme(theme: string) {
     this.themeService.switchTheme(theme);
-}
-
+  }
 }

@@ -2,7 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -21,12 +21,27 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@AppStore": ["app/app.store"],
+      "@Components/*": ["app/shared/components/*"],
+      "@Consts/*": ["app/shared/consts/*"],
+      "@Enums/*": ["app/shared/enums/*"],
+      "@Environment": ["environments/environment"],
+      "@Mocks/*": ["specs/mocks/*"],
+      "@Models/*": ["app/shared/models/*"],
+      "@Types/*": ["app/shared/types/*"],
+      "@Modules/*": ["app/modules/*"],
+      "@Specs/*": ["specs/*"],
+      "@Loaders/*": ["app/shared/loaders/*"],
+      "@Store/*": ["app/shared/store/*"]
+    },
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "fullTemplateTypeCheck": true
   }
 }
