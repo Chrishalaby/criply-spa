@@ -9,7 +9,6 @@ import { ThemeService } from './theme-service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  public title = 'criply';
   public items: MenuItem[] = [
     {
       label: 'Home',
