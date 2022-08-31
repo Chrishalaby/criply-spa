@@ -28,12 +28,25 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClothesComponent } from './clothes/clothes.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { DeliveryPolicyComponent } from './delivery-policy/delivery-policy.component';
+import { EndfileComponent } from './endfile/endfile.component';
+import { PrivacyAndPolicyComponent } from './privacy-and-policy/privacy-and-policy.component';
+import { ReturnsAndRefundsPolicyComponent } from './returns-and-refunds-policy/returns-and-refunds-policy.component';
+import { TermsAndServiceComponent } from './terms-and-service/terms-and-service.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClothesComponent,
     AboutUsComponent,
+    EndfileComponent,
+    TermsAndServiceComponent,
+    PrivacyAndPolicyComponent,
+    ReturnsAndRefundsPolicyComponent,
+    DeliveryPolicyComponent,
+    ContactUsComponent,
+
   ],
   imports: [
     BrowserModule,

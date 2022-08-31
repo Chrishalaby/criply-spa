@@ -8,7 +8,8 @@
       "price": 3.5,
       "inventoryStatus": "INSTOCK",
       "category": "Shirt",
-      "rating": 5
+      "rating": 5,
+      "color": "black"
     },
     {
       "id": 2,
@@ -48,7 +49,8 @@
       "price": 3.5,
       "inventoryStatus": "INSTOCK",
       "category": "Shirt",
-      "rating": 5
+      "rating": 5,
+      "color": "white"
     },
     {
       "id": 6,

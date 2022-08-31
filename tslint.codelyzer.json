@@ -54,14 +54,14 @@
     "component-selector": [
       true,
       "element",
-      "lb",
+      "cr",
       "kebab-case"
     ],
     "directive-class-suffix": true,
     "directive-selector": [
       true,
       "attribute",
-      "lb",
+      "cr",
       "camelCase"
     ],
     "import-destructuring-spacing": true,
@@ -71,7 +71,7 @@
     "no-queries-metadata-property": true,
     "pipe-prefix": [
       true,
-      "lb"
+      "cr"
     ],
     "prefer-inline-decorator": false
   }

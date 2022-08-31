@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { debounceTime, tap } from 'rxjs';
-import { FilterMatchMode, FilterService, SelectItem } from 'primeng/api';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { FilterMatchMode, FilterService, SelectItem } from 'primeng/api';
 import { DataView } from 'primeng/dataview';
+import { debounceTime, tap } from 'rxjs';
 
 export interface Product {
   image: string;
@@ -13,13 +13,13 @@ export interface Product {
   inventoryStatus: string;
   category: string;
   rating: number;
-  size: string;
+  color: string;
 }
 
 @Component({
-  selector: 'app-clothes',
+  selector: 'cr-clothes',
   templateUrl: './clothes.component.html',
-  styleUrls: ['./clothes.component.scss']
+  styleUrls: ['./clothes.component.scss'],
 })
 
 export class ClothesComponent implements OnInit {
@@ -47,6 +47,11 @@ export class ClothesComponent implements OnInit {
     {label: 'Price High to Low', value: '!price'},
     {label: 'Price Low to High', value: 'price'}
   ];
+
+  colorSortOptions:{label: string, value: string}[] =[
+    {label: 'Black', value: 'black'},
+    {label: 'White', value: 'white'}
+  ]
 
   @ViewChild('dv') dataView!: DataView;
   constructor(
