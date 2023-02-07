@@ -57,12 +57,21 @@ export class AppComponent {
       ],
     },
   ];
+  // public enditems: MenuItem[] =[
+  //   {
+  //     label: 'Profile',
+  //     icon: 'pi pi-fw pi-user',
+  //     items: [
+  //       {
+  //         label: 'Sign In/Register',
+  //         icon: 'pi pi-fw pi-user-plus',
+  //         routerLink: 'user-signup',
+  //       },
+  //     ],
+  //   },
+  // ];
 
   public constructor(
     private readonly themeService: ThemeService,
   ) {}
-
-  // changeTheme(theme: string) {
-  //   this.themeService.switchTheme(theme);
-  // }
 }
